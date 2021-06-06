@@ -1,0 +1,60 @@
+:host {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    grid-gap: 1rem;
+    place-content: center;
+    place-items: center;
+    padding: 1rem;
+}
+
+.add-movie-button {
+    font-size: 3rem;
+    height: 5rem;
+    width: 20rem;
+}
+
+.custom-button-wrapper {
+    display: grid;
+    grid-auto-flow: column;
+    place-content: center;
+    place-items: center;
+}
+
+.add-movie-button__icon {
+    font-size: 3rem;
+    width: 3rem;
+    height: 3rem;
+}
+
+.custom-grid-container {
+    display: flex;
+    padding: 1rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    place-content: center;
+    place-items: center;
+}
+
+.list-item {
+    padding: 1rem;
+    box-shadow: 1px 2px 4px 2px rgb(0 0 0 / 10%);
+    display: grid;
+    place-content: space-between;
+    place-items: flex-start;
+    height: 75rem;
+    width: 35rem;
+    grid-gap: 1rem;
+    margin: 1rem;
+}
+
+.list-item__action-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    grid-gap: 1rem;
+}
+
+h3 {
+    text-transform: capitalize;
+}

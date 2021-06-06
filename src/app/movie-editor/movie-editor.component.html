@@ -1,0 +1,45 @@
+<img [src]="movieForm.get('Poster')?.value" onerror="this.src='assets/AltImage.png'">
+<form [formGroup]="movieForm" 
+    class="movie-form-editor">
+  <mat-form-field appearance="legacy">
+    <mat-label>Title</mat-label>
+    <input matInput formControlName="Title" placeholder="Title">
+    <mat-error *ngIf="movieForm?.get('Title')?.errors?.titleExists && movieForm?.get('Title')?.dirty">
+        Movie title already exists</mat-error>
+        <mat-error *ngIf="movieForm?.get('Title')?.errors?.invalidChar && movieForm?.get('Title')?.dirty">
+            Invalid Characters, please use only english letters, spaces or ':/!/?'</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="legacy">
+    <mat-label>Genre</mat-label>
+    <input matInput formControlName="Genre" placeholder="Genre">
+        <mat-error *ngIf="movieForm?.get('Genre')?.errors?.invalidChar && movieForm?.get('Genre')?.dirty">
+            Please use english letters only</mat-error>
+  </mat-form-field>
+  
+  <mat-form-field appearance="legacy">
+    <mat-label>Year</mat-label>
+    <input matInput formControlName="Year" placeholder="Year">
+        <mat-error *ngIf="movieForm?.get('Year')?.errors?.invalidChar && movieForm?.get('Year')?.dirty">
+            Invalid input, use numbers only</mat-error>
+            <mat-error class="error" *ngIf="movieForm?.get('Year')?.errors?.invalidYear && movieForm?.get('Year')?.dirty">
+                Invalid year, please enter a year between 1900 - 2050</mat-error>  
+  </mat-form-field>
+  <mat-form-field appearance="legacy">
+    <mat-label>Director</mat-label>
+    <input matInput formControlName="Director" placeholder="Director">
+        <mat-error *ngIf="movieForm?.get('Director')?.errors?.invalidChar && movieForm?.get('Director')?.dirty">
+            Please use english letters only</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="legacy">
+    <mat-label>Poster</mat-label>
+    <input matInput formControlName="Poster" placeholder="Poster">
+  </mat-form-field>
+  <div class="editor-actions">
+    <button [disabled]="movieForm.invalid" type="submit" mat-raised-button color="primary" (click)="onSave()">
+        <mat-icon>save</mat-icon>Save
+    </button>
+    <button type="submit" mat-raised-button (click)="onClose()">
+        <mat-icon>cancel</mat-icon>Cancel
+    </button>
+    </div>
+</form>
